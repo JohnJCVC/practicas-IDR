@@ -1,0 +1,2 @@
+typeorm
+@nestjs/microservices

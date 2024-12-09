@@ -1,0 +1,77 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Inversionista {
+  nombre: String!
+  identificacion: String!
+}
+
+type ConceptoInversion {
+  concepto: String!
+  detalle: String!
+}
+
+type InversionRealizada {
+  inversionista: Inversionista!
+  concepto: ConceptoInversion!
+  valorInversion: Float!
+  duracionEnDias: Float!
+  fecha: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  inversionista: [Inversionista!]!
+  inversionistaById(id: String!): Inversionista!
+  conceptoInversion: [ConceptoInversion!]!
+  conceptoInversionById(id: String!): ConceptoInversion!
+  findAllInversionRealizada: [InversionRealizada!]!
+  findOneInversionRealizada(id: String!): InversionRealizada!
+}
+
+type Mutation {
+  createInversionista(createInversionistaInput: CreateInversionistaInput!): Inversionista!
+  updateInversionista(updateInversionistaInput: UpdateInversionistaInput!): Inversionista!
+  removeInversionista(id: ID!): Inversionista!
+  createConceptoInversion(createConceptoInversionInput: CreateConceptoInversionInput!): ConceptoInversion!
+  updateConceptoInversion(updateConceptoInversionInput: UpdateConceptoInversionInput!): ConceptoInversion!
+  removeConceptoInversion(id: String!): ConceptoInversion!
+  createInversionRealizada(createInversionRealizadaInput: CreateInversionRealizadaInput!): InversionRealizada!
+  updateInversionRealizada(id: String!, updateInversionRealizadaInput: CreateInversionRealizadaInput!): InversionRealizada!
+  removeInversionRealizada(id: String!): InversionRealizada!
+}
+
+input CreateInversionistaInput {
+  nombre: String!
+  identificacion: String!
+}
+
+input UpdateInversionistaInput {
+  nombre: String
+  identificacion: String
+  id: ID!
+}
+
+input CreateConceptoInversionInput {
+  concepto: String!
+  detalle: String!
+}
+
+input UpdateConceptoInversionInput {
+  concepto: String
+  detalle: String
+  id: ID!
+}
+
+input CreateInversionRealizadaInput {
+  idInversionista: ID!
+  idConcepto: ID!
+  valorInversion: Float!
+  duracionEnDias: Float!
+  fecha: DateTime!
+}
